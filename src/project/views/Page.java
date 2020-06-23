@@ -3,8 +3,7 @@ package project.views;
 import java.io.IOException;
 
 public abstract class Page {
-	public void buildPage() {
-		System.out.println("Hi");
+	public void clearScreen() {
 		try {
 	        if (System.getProperty("os.name").contains("Windows")) {
 	        	new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
@@ -15,5 +14,9 @@ public abstract class Page {
 	    } catch (IOException | InterruptedException ex) {
 	    	
 	    }
+	}
+	
+	public void buildPage() {
+		clearScreen();
 	}
 }
