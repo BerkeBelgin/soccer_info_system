@@ -1,7 +1,7 @@
 package project.models;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.util.Set;
 
 public class Match {
 	private LocalDateTime matchDate;
@@ -11,10 +11,10 @@ public class Match {
 	private Club away;
 	private int homeScore;
 	private int awayScore;
-	private ArrayList<Player> homeTopEleven;
-	private ArrayList<Player> homeSubstitutes;
-	private ArrayList<Player> awayTopEleven;
-	private ArrayList<Player> awaySubstitutes;
+	private Set<Player> homeTopEleven; //new HashSet<Player>();
+	private Set<Player> homeSubstitutes;
+	private Set<Player> awayTopEleven;
+	private Set<Player> awaySubstitutes;
 	
 	
 	public LocalDateTime getMatchDate() {
@@ -38,16 +38,16 @@ public class Match {
 	public int getAwayScore() {
 		return awayScore;
 	}
-	public ArrayList<Player> getHomeTopEleven() {
+	public Set<Player> getHomeTopEleven() {
 		return homeTopEleven;
 	}
-	public ArrayList<Player> getHomeSubstitutes() {
+	public Set<Player> getHomeSubstitutes() {
 		return homeSubstitutes;
 	}
-	public ArrayList<Player> getAwayTopEleven() {
+	public Set<Player> getAwayTopEleven() {
 		return awayTopEleven;
 	}
-	public ArrayList<Player> getAwaySubstitutes() {
+	public Set<Player> getAwaySubstitutes() {
 		return awaySubstitutes;
 	}
 	
@@ -72,16 +72,16 @@ public class Match {
 	public void setAwayScore(int userId, int awayScore) {
 		this.awayScore = awayScore;
 	}
-	public void setHomeTopEleven(int userId, ArrayList<Player> homeTopEleven) {
+	public void setHomeTopEleven(int userId, Set<Player> homeTopEleven) {
 		this.homeTopEleven = homeTopEleven;
 	}
-	public void setHomeSubstitutes(int userId, ArrayList<Player> homeSubstitutes) {
+	public void setHomeSubstitutes(int userId, Set<Player> homeSubstitutes) {
 		this.homeSubstitutes = homeSubstitutes;
 	}
-	public void setAwayTopEleven(int userId, ArrayList<Player> awayTopEleven) {
+	public void setAwayTopEleven(int userId, Set<Player> awayTopEleven) {
 		this.awayTopEleven = awayTopEleven;
 	}
-	public void setAwaySubstitutes(int userId, ArrayList<Player> awaySubstitutes) {
+	public void setAwaySubstitutes(int userId, Set<Player> awaySubstitutes) {
 		this.awaySubstitutes = awaySubstitutes;
 	}
 }

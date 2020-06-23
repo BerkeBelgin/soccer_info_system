@@ -6,7 +6,7 @@ import project.binarySearchTree.BinarySearchTree;
 
 public class Season {
 	private String name;
-	private BinarySearchTree<Player> players;
+	private BinarySearchTree<Player> players;//Balanced Binary Search Tree
 	private ArrayList<Week> weeks;
 	
 	public String getName() {
