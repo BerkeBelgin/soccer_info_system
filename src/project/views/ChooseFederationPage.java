@@ -13,13 +13,13 @@ public class ChooseFederationPage extends Page {
 	 @Override
 	public void buildPage() {
 		super.buildPage();
-		int choice=0,i=0;
-		for(i = 0; i < Football.federations.size(); i++) {
+		int choice=0;
+		for(int i = 0; i < Football.federations.size(); i++) {
 			System.out.println((i) + " - " + Football.federations.get(i).getName());
 		}
-		System.out.println((Football.federations.size()+1)+ " - " + Football.federations.get(i).getName());
+		
 		do {
-			choice=scnnr.nextInt();
+			choice= Integer.parseInt(scnnr.nextLine());
 			choice--;
 		}while(choice < 0 || choice > Football.federations.size());
 		
