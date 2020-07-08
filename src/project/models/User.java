@@ -1,15 +1,11 @@
 package project.models;
 
 public class User extends Person{
-	private int id;
 	private String username;
 	private String password;
 	private int role;
 	private int scope_id; //kapsam idsi	
 	
-	public int getId() {
-		return id;
-	}
 	public String getUsername() {
 		return username;
 	}
@@ -23,9 +19,6 @@ public class User extends Person{
 		return scope_id;
 	}
 	
-	public void setId(int id, int userId) {
-		this.id = id;
-	}
 	public void setUsername(String username, int userId) {
 		this.username = username;
 	}

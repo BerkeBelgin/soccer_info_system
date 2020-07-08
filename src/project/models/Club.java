@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 public class Club {
-	private int id;
 	private String name;
 	private Person president;
 	private Person coach;
@@ -18,9 +17,6 @@ public class Club {
 		this.playersByGoals = new PriorityQueue<Player>();
 	}
 	
-	public int getId() {
-		return id;
-	}
 	public String getName() {
 		return name;
 	}

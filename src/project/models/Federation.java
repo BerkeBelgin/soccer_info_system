@@ -4,16 +4,12 @@ import java.util.ArrayList;
 import java.util.Queue;
 
 public class Federation {
-	private int id;
 	private String name;
 	private Queue<Person> referees;
 	private ArrayList<Club> clubs;
 	private Person president;
 	private ArrayList<Season> seasons;
 	
-	public int getId() {
-		return id;
-	}
 	public String getName() {
 		return name;
 	}
