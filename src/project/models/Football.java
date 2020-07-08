@@ -12,11 +12,11 @@ import com.google.gson.Gson;
 
 public class Football {
 	public static String identity;
-	public static ArrayList<Federation> federations;
-	private static ArrayList<Club> clubs;
-	private static ArrayList<Season> seasons;
-	private static ArrayList<Player> players;
-	private static ArrayList<User> users;
+	public static ArrayList<Federation> federations = new ArrayList<Federation>();
+	private static ArrayList<Club> clubs = new ArrayList<Club>();
+	private static ArrayList<Season> seasons = new ArrayList<Season>();
+	private static ArrayList<Player> players = new ArrayList<Player>();
+	private static ArrayList<User> users = new ArrayList<User>();
 	
 	public static void addUser(String firstName, String lastName, String username, String password) {
 		users.add(new User(firstName, lastName, username, password));
@@ -42,7 +42,7 @@ public class Football {
 	}
 	
 	public static boolean userExists(String username,String password) {
-		for(int i=0;i<users.size();++i) {
+		for(int i=0;i < users.size();i++) {
 			if(users.get(i).getUsername().equals(username) && users.get(i).getPassword().equals(password))
 				return true;
 		}

@@ -19,13 +19,13 @@ public class LoginPage extends Page {
 			System.out.println("1) Log In ");
 			System.out.println("2) Sign Up ");
 			System.out.println("3) Quit");
-			choice = scnnr.nextInt();
+			choice = Integer.parseInt(scnnr.nextLine());
 			
 			switch (choice) {
 			case 1:
 				System.out.print("username: ");
 				String username = scnnr.nextLine();
-				System.out.println("password: ");
+				System.out.print("password: ");
 				String password = scnnr.nextLine();
 				if(Football.userExists(username, password)) {
 					Football.identity = username;
