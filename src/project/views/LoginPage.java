@@ -1,44 +1,43 @@
 package project.views;
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 import project.models.Football;
 
 public class LoginPage extends Page {
+	private Scanner scnnr;
+	
+	public LoginPage(Scanner scnnr) {
+		this.scnnr = scnnr;
+	}
 	
 	@Override
 	public void buildPage() {
 		super.buildPage();
-		Scanner scn = new Scanner(System.in);
 		int choice = 0;
 		
 		do {
 			System.out.println("1) Log In ");
 			System.out.println("2) Sign Up ");
 			System.out.println("3) Quit");
-			choice = scn.nextInt();
+			choice = scnnr.nextInt();
 			
 			switch (choice) {
 			case 1:
 				System.out.print("username: ");
-				String username = scn.nextLine();
+				String username = scnnr.nextLine();
 				System.out.println("password: ");
-				String password = scn.nextLine();
+				String password = scnnr.nextLine();
 				if(Football.userExists(username, password)) {
 					Football.identity = username;
-					ChooseFederationPage cfp = new ChooseFederationPage();
+					ChooseFederationPage cfp = new ChooseFederationPage(scnnr);
 					cfp.buildPage();
 				}
 				break;
 			case 2:
-				SignUpPage sp = new SignUpPage();
+				SignUpPage sp = new SignUpPage(scnnr);
 				sp.buildPage();
 				break;
 			}
 		} while(choice != 3);
-		
-		scn.close();
 	}
 }

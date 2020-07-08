@@ -8,10 +8,12 @@ import project.models.Federation;
 import project.models.Football;
 
 public class TeamInfoPage extends Page{
+	Scanner scnnr;
 	Club club;
 	Federation federation;
 	
-	public TeamInfoPage(Club club,Federation federation) {
+	public TeamInfoPage(Scanner scnnr, Club club,Federation federation) {
+		this.scnnr = scnnr;
 		this.club=club;
 		this.federation=federation;
 	}
@@ -20,7 +22,6 @@ public class TeamInfoPage extends Page{
 	public void buildPage() {
 		super.buildPage();
 		System.out.println(club.getName()+"'s Informations");
-		Scanner sc=new Scanner(System.in);
 		String s=new String();
 		int choice=0;
 		if(Football.identity.equals(club.getPresident().getUsername())) {
@@ -32,7 +33,7 @@ public class TeamInfoPage extends Page{
 				System.out.println("5 - Change club president");
 				System.out.println("6 - Change coach");
 				System.out.println("7 - Previous Page");
-				s=sc.nextLine();
+				s=scnnr.nextLine();
 				choice=Integer.parseInt(s);
 				choice--;
 				super.clearScreen();
@@ -42,7 +43,7 @@ public class TeamInfoPage extends Page{
 				page.buildPage();
 			}
 			else if(choice == 1) {
-				FixturePage fp=new FixturePage(federation.getSeasons(),club,federation);
+				FixturePage fp=new FixturePage(scnnr, federation.getSeasons(),club,federation);
 				fp.buildPage();
 			}
 			else if(choice == 2) {
@@ -62,11 +63,11 @@ public class TeamInfoPage extends Page{
 				ccp.buildPage();
 			}
 			else if(choice == 6) {
-				ClubPage cp=new ClubPage(federation);
+				ClubPage cp=new ClubPage(scnnr, federation);
 				cp.buildPage();
 			}
 			else  {
-				ClubPage cp=new ClubPage(federation);
+				ClubPage cp=new ClubPage(scnnr, federation);
 				cp.buildPage();
 			}
 		}
@@ -77,7 +78,7 @@ public class TeamInfoPage extends Page{
 				System.out.println("2 - Fixture");
 				System.out.println("3 - Choose Top Eleven and Substitute");
 				System.out.println("4 - Previous Page");
-				s=sc.nextLine();
+				s=scnnr.nextLine();
 				choice=Integer.parseInt(s);
 				choice--;
 				super.clearScreen();
@@ -87,19 +88,19 @@ public class TeamInfoPage extends Page{
 				page.buildPage();
 			}
 			else if(choice == 1) {
-				FixturePage fp=new FixturePage(federation.getSeasons(),club,federation);
+				FixturePage fp=new FixturePage(scnnr, federation.getSeasons(),club,federation);
 				fp.buildPage();
 			}
 			else if(choice == 2) {
-				ClubPage cp=new ClubPage(federation);
+				ClubPage cp=new ClubPage(scnnr, federation);
 				cp.buildPage();
 			}
 			else if(choice == 3) {
-				ClubPage cp=new ClubPage(federation);
+				ClubPage cp=new ClubPage(scnnr, federation);
 				cp.buildPage();
 			}
 			else {
-				ClubPage cp=new ClubPage(federation);
+				ClubPage cp=new ClubPage(scnnr, federation);
 				cp.buildPage();
 			}
 		}
@@ -109,7 +110,7 @@ public class TeamInfoPage extends Page{
 				System.out.println("1 - Players");
 				System.out.println("2 - Fixture");
 				System.out.println("3 - Previous Page");
-				s=sc.nextLine();
+				s=scnnr.nextLine();
 				choice=Integer.parseInt(s);
 				choice--;
 				super.clearScreen();
@@ -120,19 +121,17 @@ public class TeamInfoPage extends Page{
 			page.buildPage();
 		}
 		else if(choice == 1) {
-			FixturePage fp=new FixturePage(federation.getSeasons(),club,federation);
+			FixturePage fp=new FixturePage(scnnr, federation.getSeasons(),club,federation);
 			fp.buildPage();
 		}
 		else if(choice == 2) {
-			ClubPage cp=new ClubPage(federation);
+			ClubPage cp=new ClubPage(scnnr, federation);
 			cp.buildPage();
 		}
 		else {
-			ClubPage cp=new ClubPage(federation);
+			ClubPage cp=new ClubPage(scnnr, federation);
 			cp.buildPage();
 		}
-		sc.close();
-		
 	}
 	
 }

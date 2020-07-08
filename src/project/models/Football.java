@@ -18,6 +18,10 @@ public class Football {
 	private static ArrayList<Player> players;
 	private static ArrayList<User> users;
 	
+	public static void addUser(String firstName, String lastName, String username, String password) {
+		users.add(new User(firstName, lastName, username, password));
+	}
+	
 	public static void giveSystemAdminRole(String username) {
 		
 	}
