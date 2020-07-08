@@ -91,7 +91,8 @@ public class TeamInfoPage extends Page{
 				fp.buildPage();
 			}
 			else if(choice == 2) {
-				
+				ClubPage cp=new ClubPage(federation);
+				cp.buildPage();
 			}
 			else if(choice == 3) {
 				ClubPage cp=new ClubPage(federation);
