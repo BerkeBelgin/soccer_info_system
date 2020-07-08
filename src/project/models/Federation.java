@@ -2,6 +2,7 @@ package project.models;
 
 import java.util.ArrayList;
 import java.util.Queue;
+import java.util.concurrent.ConcurrentSkipListSet;
 
 public class Federation {
 	private String name;
@@ -9,7 +10,7 @@ public class Federation {
 	private ArrayList<Club> clubs;
 	private Person president;
 	private ArrayList<Season> seasons;
-	
+	private ConcurrentSkipListSet<Person> federationAdmins;
 	
 	public String getName() {
 		return name;
@@ -29,34 +30,25 @@ public class Federation {
 	public ArrayList<Season> getSeasons() {
 		return seasons;
 	}
-	
-	public void addRefree(int userId, Person person) {
-		
+	public void addReferee(Person person) {
+		referees.add(person);
 	}
-	public boolean removeRefree(int userId, int id){
-		return false;
+	public boolean removeReferee(Person person){
+		return referees.remove(person);
 	}
-	
-	public void addClub(int userId, Club club) {
-		
+	public void addClub(Club club) {
+		clubs.add(club);
 	}
-	public boolean removeClub(int userId, int id){
-		return false;
+	public boolean removeClub(Club club){
+		return clubs.remove(club);
 	}
-	
-	public void addFederationAdmin(int userId, Club club) {
-		
+	public void addFederationAdmin(Person person) {
+		federationAdmins.add(person);
 	}
-	public boolean removeFederationAdmin(int userId, int id){
-		return false;
+	public boolean removeFederationAdmin(Person person){
+		return federationAdmins.remove(person);
 	}
 	
-	public void addMatch(int userId, Match match) {
-		
-	}
-	public boolean removeMatch(int userId, int id){
-		return false;
-	}
 	public void generateFixture() {
 		
 	}
