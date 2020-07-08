@@ -11,7 +11,8 @@ import java.util.Arrays;
 import com.google.gson.Gson;
 
 public class Football {
-	private static ArrayList<Federation> federations;
+	public static String identity;
+	public static ArrayList<Federation> federations;
 	private static ArrayList<Club> clubs;
 	private static ArrayList<Season> seasons;
 	private static ArrayList<Player> players;
@@ -36,6 +37,13 @@ public class Football {
 		
 	}
 	
+	public static boolean userExists(String username,String password) {
+		for(int i=0;i<users.size();++i) {
+			if(users.get(i).getUsername().equals(username) && users.get(i).getPassword().equals(password))
+				return true;
+		}
+		return false;
+	}
 	
 	private static void readFederationsStateFromFile() {
 		Gson gson = new Gson();

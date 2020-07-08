@@ -2,28 +2,31 @@ package project.models;
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;
+import java.util.concurrent.ConcurrentSkipListSet;
 
 public class Club {
 	private String name;
-	private Person president;
-	private Person coach;
+	private User president;
+	private User coach;
 	private ArrayList<Person> healthOfficers;
 	private ArrayList<Player> players;
 	private PriorityQueue<Player> playersByGoals;
+	private ConcurrentSkipListSet<User> clubAdmins;
 	
 	public Club() {
 		this.healthOfficers = new ArrayList<Person>();
 		this.players = new ArrayList<Player>();
 		this.playersByGoals = new PriorityQueue<Player>();
+		this.clubAdmins=new ConcurrentSkipListSet<>();
 	}
 	
 	public String getName() {
 		return name;
 	}
-	public Person getPresident() {
+	public User getPresident() {
 		return president;
 	}
-	public Person getCoach() {
+	public User getCoach() {
 		return coach;
 	}
 	public Person getHealthOfficer(int index) {
@@ -35,13 +38,18 @@ public class Club {
 	public Player getTopPlayer() {
 		return playersByGoals.peek();
 	}
-
-	public void setPresident(int role, Person president) {
-		
+	public int getPlayerAmount() {
+		return players.size();
+	}
+	public ConcurrentSkipListSet<User> getClubAdmins() {
+		return clubAdmins;
+	}
+	public void setPresident(User president) {
+		this.president=president;
 	}
 	
-	public void setCoach(int role, Person coach) {
-		
+	public void setCoach(User coach) {
+		this.coach=coach;
 	}
 	
 	public void addHealthOfficer(int role, Person person) {
@@ -50,8 +58,8 @@ public class Club {
 	public void addPlayer(int role, Player player) {
 		
 	}
-	public void addClubAdmin(int role, User admin) {
-		
+	public void addClubAdmin(User newAdmin) {
+		clubAdmins.add(newAdmin);
 	}
 	
 	public void setHealthOfficer(int role, Person person, int id) {
@@ -70,7 +78,7 @@ public class Club {
 	public void removePlayer(int role, int id) {
 		
 	}
-	public void removeClubAdmin(int role, int id) {
-		
+	public void removeClubAdmin(User clubAdmin) {
+		clubAdmins.remove(clubAdmin);
 	}
 }

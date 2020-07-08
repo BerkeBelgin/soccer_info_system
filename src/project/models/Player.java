@@ -38,22 +38,22 @@ public class Player extends Person implements Comparable<Player> {
 	public void setPriority(int role, int priority) {
 		this.priority = priority;
 	}
-	public void setAge(int role, int age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
-	public void setHeight(int role, int height) {
+	public void setHeight(int height) {
 		this.height = height;
 	}
-	public void setWeight(int role, int weight) {
+	public void setWeight(int weight) {
 		this.weight = weight;
 	}
-	public void setInjured(int role, boolean isInjured) {
+	public void setInjured(boolean isInjured) {
 		this.isInjured = isInjured;
 	}
-	public void setGoals(int role, int goals) {
+	public void setGoals(int goals) {
 		this.goals = goals;
 	}
-	public void setAssists(int role, int assists) {
+	public void setAssists(int assists) {
 		this.assists = assists;
 	}
 	

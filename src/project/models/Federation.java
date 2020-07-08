@@ -10,6 +10,7 @@ public class Federation {
 	private Person president;
 	private ArrayList<Season> seasons;
 	
+	
 	public String getName() {
 		return name;
 	}
@@ -18,6 +19,9 @@ public class Federation {
 	}
 	public Club getClub(int index) {
 		return clubs.get(index);
+	}
+	public int getClubAmount() {
+		return clubs.size();
 	}
 	public Person getPresident() {
 		return president;
