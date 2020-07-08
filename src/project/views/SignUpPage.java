@@ -7,6 +7,7 @@ import project.models.Football;
 public class SignUpPage extends Page{
 	 @Override
 	public void buildPage() {
+		 super.buildPage();
 		 Scanner scn = new Scanner(System.in);
 			int choice = 0;
 			
@@ -25,8 +26,8 @@ public class SignUpPage extends Page{
 					if(!Football.userExists(username, password)) {
 						Football.addUser(username, password);
 						Football.identity = username;
-						HomePage hp = new HomePage();
-						hp.buildPage();
+						ChooseFederationPage cfp = new ChooseFederationPage();
+						cfp.buildPage();
 					}
 					break;
 				case 2:

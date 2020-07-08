@@ -28,7 +28,7 @@ public class LoginPage extends Page {
 				String password = scn.nextLine();
 				if(Football.userExists(username, password)) {
 					Football.identity = username;
-					HomePage hp = new HomePage();
+					ChooseFederationPage dfp = new ChooseFederationPage();
 					hp.buildPage();
 				}
 				break;
